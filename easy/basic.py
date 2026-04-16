@@ -34,7 +34,6 @@ if H%A==0:
 else:
     print(H//A+1)
 """
-
 #04
 """
 K=input()
@@ -47,7 +46,6 @@ for n in range(A,B+1):
 
 print("ok" if exsist else "NG")
 """
-
 #05
 """
 N,A,B=map(int,input().split())
@@ -65,14 +63,46 @@ print(total)
 """
 
 #06
-N=input()
-N=int(N)
-
+"""
+N=int(input())
 A=list(map(int,input().split()))
 cnt=0
 flag=True
 while flag:
-    for i in range(1,N+1):
+    for i in range(0,N):
         if A[i]%2!=0:
-            print(cnt)
-            break
+            flag=False
+    if flag:
+        for i in range(N):
+            A[i] //= 2
+        cnt+=1
+print(cnt)
+"""
+"""
+#別解
+def func(num):
+    cnt=0
+    while num%2==0:
+        num=num//2
+        cnt+=1
+    return cnt
+
+N=int(input())
+A=list(map(int,input().split()))
+result=min(map(func,A))
+print(result)
+"""
+#07
+""""""
+N=int(input())
+a=list(map(int,input().split()))
+sum=0
+a.sort(reverse=True)
+
+for i in range(0,N):
+    if i%2==0:
+        sum+=a[i]
+    else:
+        sum-=a[i]
+
+print(sum)
